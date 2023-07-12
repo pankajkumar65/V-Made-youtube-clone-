@@ -17,7 +17,7 @@ const VideoDetails = () => {
       .then((data)=> setVideoDetail(data.items[0]));
 
       fetchFromAPi(`search?part=snippet&relatedToVideoId=${id}`)
-      .then((data)=> setVideos(data.items))
+      .then((data)=> setVideos(data.items));
   },[id]);
 
   if(!videoDetail?.snippet) return "Loading";
@@ -33,6 +33,7 @@ const VideoDetails = () => {
               { title}
             </Typography>
             <Stack direction='row' justifyContent='space-between' sx={{color:'#fff'}} py={1} px={2}>
+
                 <Link to={`/channel/${channelId}`}>
                   <Typography varient={{sm:'subtitle1', md:'h6'}} color='#fff'>
                   {channelTitle}
